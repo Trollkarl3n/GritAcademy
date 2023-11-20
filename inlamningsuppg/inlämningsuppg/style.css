@@ -1,0 +1,583 @@
+*{
+    padding: 0%;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-position: center;
+}
+
+:root{
+    --bg-color: #222327;
+    --text-color: #fff;
+    --main-color: #970074; 
+    --bg2-color: #413d40;
+}
+
+body{
+    min-height: 100vh;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: transparent;
+    padding: 28px 12%;
+    transition: all .50s ease;
+}
+
+.logo{
+    display: flex;
+    align-self: center;
+    color: var(--main-color);
+    font-size: 28px;
+    margin-right: 3px;
+}
+.logo span{
+    color: var(--text-color);
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.navbar{
+    display: flex;
+}
+.navbar a{
+    color: var(--text-color);
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 5px 0;
+    margin: 0px 30px;
+    transition: all .50s ease;
+}
+.navbar a:hover{
+    color: var(--main-color);
+}
+.navbar a:active{
+    color: var(--main-color);
+}
+
+.main{
+    display: flex;
+    align-items: center;
+}
+.main a{
+    margin-right: 10px;
+    margin-left: 10px;
+    color: var(--text-color);
+    font-size: 2rem;
+    font-weight: 500;
+    transition: all .50s ease;
+}
+.main a:hover{
+    color: var(--main-color);
+}
+#menu-icon{
+    font-size: 35px;
+    color: var(--text-color);
+    cursor: pointer;
+    z-index: 10001;
+    display: none;
+}
+
+.btnLogin-popup {
+    background-color: transparent;
+    background: none;
+    padding: 0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.4em;
+    font-weight: 500;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+}
+.btnLogin-popup:hover {
+    color: var(--main-color);
+}
+
+@media (max-width: 1280px){
+    header{
+        padding: 14px 2%;
+        transition: .2s;
+    }
+    .navbar a{
+        padding: 5px 0;
+        margin: 0px 20px;
+    }
+}
+@media (max-width: 1090px){
+    #menu-icon{
+        display: block;
+    }
+    .navbar{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 270px;
+        height: 54vh;
+        background-color: var(--bg2-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        border-radius: 10px;
+        transition: all .50s ease;
+    }
+    .navbar a, .navbar .btnLogin-popup{
+        display: block;
+        margin: 12px 0;
+        padding: 0px 25px;
+        transition: all .50s ease;
+        text-align: left;
+    }
+    .navbar a:hover, .navbar .btnLogin-popup:hover{
+        color: var(--main-color);
+        transform: translateY(5px);
+    }
+    .navbar a:active{
+        color: var(--text-color);
+    }
+    .navbar.open{
+        right: 2%;
+    }
+}
+
+@media (max-width: 1280px){
+    .cover {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.cover {
+    width: 100%;
+    /* height: 600px; */
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.box {
+    width: 400px;
+    height: 600px;
+    margin: 10px;
+    box-shadow: -1px 0 10px var(--main-color);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+#planates {
+    width: 400px;
+    height: 400px;
+    display: flex;
+}
+
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+
+.imagecaro {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 640px;
+}
+::selection {
+    color: var(--text-color);
+    background-color: var(--bg-color);
+}
+.carousell {
+    position: relative;
+    width: 770px;
+    height: 470px;
+    margin: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 1em;
+    color: var(--bg-color);
+    line-height: 1.5;
+    background-color: var(--text-color);
+}
+.carousell .img-list {
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: calc(100% * 3);
+    height: 100%;
+    transition: 500ms;
+}
+.carousell .img-list img {
+    float: left;
+    width: calc(100% / 3);
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.carousell .content {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    padding: 50px;
+    padding-bottom: 75px;
+}
+.carousell .text-content {
+    position: absolute;
+    top: 30px;
+    width: calc(100% - 100px);
+    max-width: 400px;
+    line-height: 1.2;
+    color: var(--text-color);
+}
+.carousell h2 {
+    font-size: 3em;
+    font-weight: 700;
+    padding-bottom: 20px;
+}
+.carousell .btn-section {
+    position: absolute;
+    display: flex;
+    bottom: 20px;
+    left: 45%;
+    transform: translateY(-50%);
+    z-index: 200;
+    width: fit-content;
+}
+.carousell .caro-btn {
+    width: 25px;
+    height: 5px;
+    margin: 0 4px;
+    background-color: var(--bg2-color);
+    transition: 300ms;
+    cursor: pointer;
+}
+.carousell .caro-btn:first-child {
+    background-color: var(--text-color);
+}
+.carousell .caro-btn:hover {
+    background-color: var(--text-color);
+}
+
+@media only screen and (max-width: 370px) {
+    .carousell .content {
+        padding: 25px;
+    }
+    .carousell h2 {
+        font-size: 25px;
+    }
+}
+
+.wrapper {
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 15px;
+    backdrop-filter: blur(25px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform .5s ease, height .2s ease;
+    transform: scale(0);
+    position: absolute;
+}
+
+.wrapper.active-popup {
+    transform: scale(1);
+}
+
+.wrapper.active {
+    height: 520px;
+}
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+.wrapper .form-box.login {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+.wrapper.active .form-box.login{
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register {
+    position: absolute;
+    transition: none;
+    transform: translate(400px);
+}
+.wrapper.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+.wrapper .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background-color: var(--main-color);
+    font-size: 2em;
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}   
+
+.form-box h2{
+    font-size: 2em;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid var(--text-color);
+    margin: 30px 0;
+}
+.input-box label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: var(--text-color);
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+.input-box input:focus~label,
+.input-box input:valid~label{
+    top: -5px;
+}
+
+.input-box input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: var(--text-color);
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+.input-box .icon{
+    position: absolute;
+    right: 8px;
+    color: var(--main-color);
+    font-size: 1.2em;
+    line-height: 57px;
+}
+
+.remember-forgot{
+    font-size: .9em;
+    color: var(--text-color);
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+.remember-forgot label input {
+    accent-color: var(--text-color);
+    margin-right: 3px;
+}
+.remember-forgot a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+.remember-forgot a:hover{
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+    height: 45px;
+    background-color: var(--main-color);
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.login-register {
+    font-size: .9em;
+    color: var(--text-color);
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+.login-register p a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+.login-register p a:hover {
+    text-decoration: underline;
+}
+
+.contact {
+    position: relative;
+    min-height: 100vh;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.contact .contentc {
+    max-width: 800px;
+    text-align: center;
+}
+.contact .contentc h2 {
+    font-size: 36px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+.contact .contentc p {
+    font-weight: 300;
+    color: var(--text-color);
+}
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+.container .contactInfo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+.container .contactInfo .boxc {
+    position: relative;
+    padding: 20px 0;
+    display: flex;
+}
+.container .contactInfo .boxc .iconc{
+    min-width: 60px;
+    height: 60px;
+    color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+.container .contactInfo .boxc .textc {
+    display: flex;
+    margin-left: 20px;
+    font-size: 16px;
+    color: var(--text-color);
+    flex-direction: column;
+    font-weight: 300;
+}
+.container .contactInfo .boxc .textc h3 {
+    font-weight: 500;
+    color: var(--main-color);
+}
+
+.contactForm {
+    width: 40%;
+    padding: 40px;
+    background: var(--main-color);
+}
+.contactForm h2 {
+    font-size: 30px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+.contactForm .inputBox {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+}
+.contactForm .inputBox input,
+.contactForm .inputBox textarea {
+    width: 100%;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: 2px solid var(--bg-color);
+    outline: none;
+    resize: none;
+}
+.contactForm .inputBox span {
+    position: absolute;
+    left: 0;
+    padding: 5px 0;
+    font-size: 16px;
+    margin: 10px 0;
+    pointer-events: none;
+    transition: .5s;
+    color: var(--bg-color);
+}
+.contactForm .inputBox input:focus ~ span,
+.contactForm .inputBox input:valid ~ span,
+.contactForm .inputBox textarea:focus ~ span,
+.contactForm .inputBox textarea:valid ~ span {
+    color: var(--bg-color);
+    font-size: 12px;
+    transform: translateY(-20px);
+}
+.contactForm .inputBox input [type="submit"] {
+    width: 100px;
+    background: var(--bg2-color);
+    color: var(--text-color);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+}
+@media (max-width: 991px) {
+    .contact {
+        padding: 50px;
+    }
+    .container {
+        flex-direction: column;
+    }
+    .container .contactInfo {
+        margin-bottom: 40px;
+    }
+    .container .contactInfo,
+    .contactForm {
+        width: 100%;
+    }
+}
