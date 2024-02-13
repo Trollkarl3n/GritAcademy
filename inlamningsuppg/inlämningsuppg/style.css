@@ -21,6 +21,9 @@ body {
     --text-color: #fff;
     --main-color: #970074; 
     --bg2-color: #413d40;
+    --div-color: cyan;
+    --div-color2: orange;
+    --div-color3: red;
 }
 
 body{
@@ -181,10 +184,24 @@ header{
     width: 400px;
     height: 600px;
     margin: 10px;
-    box-shadow: -1px 0 10px var(--main-color);
     align-items: center;
     justify-content: center;
     text-align: center;
+}
+#startdiv{
+    box-shadow: -1px 0 10px var(--main-color);
+}
+#moondiv{
+    box-shadow: -1px 0 10px var(--text-color);
+}
+#jupiterdiv{
+    box-shadow: -1px 0 10px var(--div-color2);
+}
+#earthdiv{
+    box-shadow: -1px 0 10px var(--div-color);
+}
+#marsdiv{
+    box-shadow: -1px 0 10px var(--div-color3);
 }
 #planates {
     width: 400px;
@@ -239,7 +256,7 @@ header{
 }
 .carousell .content {
     position: relative;
-    z-index: 100;
+    z-index: 0;
     width: 100%;
     height: 100%;
     padding: 50px;
@@ -306,6 +323,7 @@ header{
     transition: transform .5s ease, height .2s ease;
     transform: scale(0);
     position: absolute;
+    z-index: 1;
 }
 
 .wrapper.active-popup {
